@@ -96,17 +96,21 @@ class Scanner(threading.Thread):
 		self.fireCount += 2
 		self.idleCount = 0
 
+
 	def updateIdleCount(self):
 		if self.fireCount > 0:
 			self.fireCount -= 1
-                self.idleCount += 1
+				self.idleCount += 1
+
 
 	def foundFaces(self):
 		self.idleCount = 0
 		self.targets = True;
 
+
 	def noFaces(self):
 		self.targets = False
+
 
 	def updateScannerStatus(self, state):
 		self.scannerStatus = state

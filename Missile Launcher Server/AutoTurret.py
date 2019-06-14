@@ -12,9 +12,9 @@ import cv2.cv as cv
 import numpy as np
 import time
 import threading
-from LaunchControl import *
-from ImageListener import * 
-from Scanner import *
+from .LaunchControl import *
+from.ImageListener import *
+from .Scanner import *
 
 # The location of the face cascade for face detection
 FACE_CASCADE_PATH = './opencv/OpenCV-2.4.3/data/haarcascades/haarcascade_frontalface_default.xml'
@@ -65,7 +65,9 @@ class AutoTurret(threading.Thread):
 		# and a large minimum face size to maximize processing speed
 		# for the Beaglebone. Also uses to Canny Pruning to increase
 		# efficiency of face detection
-		outlines = self.face_cascade.detectMultiScale(gray, scaleFactor=1.4, minNeighbors=2, minSize=(50, 50), flags = cv.CV_HAAR_DO_CANNY_PRUNING)
+		outlines = self.face_cascade.detectMultiScale(
+			gray, scaleFactor=1.4, minNeighbors=2, minSize=(50, 50),
+			flags = cv.CV_HAAR_DO_CANNY_PRUNING)
 		
 		# If there is no face detected, update the scanner count
 		# and return an empty list

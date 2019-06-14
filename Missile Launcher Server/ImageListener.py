@@ -9,7 +9,7 @@
 
 import threading
 import socket
-from AutoTurret import *
+from .AutoTurret import *
 
 class ImageListener(threading.Thread):
 	
